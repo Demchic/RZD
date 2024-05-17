@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Добавление заявки{% endblock %}
+
+{% block body %}
+    <div class="features">
+        <h1>Создание заявки</h1>
+        <p></p><br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.department }}<br>
+            {{ form.sector }}<br>
+            {{ form.post }}<br>
+            {{ form.service }}<br>
+            {{ form.address }}<br>
+            {{ form.komm }}<br>
+            <button class="btn btn-success"> <i class="bi bi-plus-circle"></i> Создать заявку</button>
+        </form>
+    </div>
+{% endblock %}

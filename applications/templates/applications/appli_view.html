@@ -1,0 +1,27 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Детальное описание заявки{% endblock %}
+
+{% block body %}
+    <div class="features">
+            <h1>Наименование услуги:</h1>
+        <div class="alert alert-warning">
+                <h1>{{ applications.service }}</h1>
+                <p>{{ applications.department }}</p>
+                <p>{{ applications.sector }}</p>
+                <p>{{ applications.post }}</p>
+                <p>{{ applications.surname }}</p>
+                <p>{{ applications.name }}</p>
+                <p>{{ applications.middle_name }}</p>
+                <p>{{ applications.tab_number }}</p>
+                <p>{{ applications.mail }}</p>
+                <p>{{ applications.phone_number }}</p>
+                <p>{{ applications.address }}</p>
+                <p>{{ applications.komm }}</p>
+                <p>{{ applications.date }}</p><br>
+            <a href="{% url 'appli-export' applications.id %}"><button class="btn btn-success"> <i class="bi bi-file-earmark-word"></i> Word</button></a>
+            <a href="{% url 'appli-export-excel' applications.id %}"> <button class="btn btn-success"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</button></a>
+            <a href="{% url 'appli-delete' applications.id %}"><button class="btn btn-danger"><i class="bi bi-trash"></i> Удалить</button></a>
+            </div>
+    </div>
+{% endblock %}

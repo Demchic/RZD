@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Успешная регистрация{% endblock %}
+
+{% block body %}
+<div class="features">
+        <h1>Добро пожаловать!</h1>
+        <p>
+            Вы успешно зарегестрировались на сайте! Для входа в систему необходимо авторизоваться по этой
+            <a href="{% url 'users:login' %}"> ссылке </a>
+        </p>
+    </div>
+{% endblock %}

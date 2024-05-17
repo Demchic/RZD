@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Удаление заявки{% endblock %}
+
+{% block body %}
+    <div class="features">
+        <h1>Вы действительно хотите удалить заявку</h1>
+            <p></p><br>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit"> <i class="bi bi-trash"></i> Удалить заявку</button>
+        </form>
+    </div>
+{% endblock %}

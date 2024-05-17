@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Заявки{% endblock %}
+
+{% block body %}
+    <div class="features">
+        <h1>История ваших заявок</h1>
+        <p></p><br>
+        <a href="{% url 'create' %}"><button class="btn btn-warning"> <i class="bi bi-plus-circle"></i> Создать заявку</button></a>
+        {% if applications %}
+            {% for el in applications %}
+                {% if el.user == request.user %}
+                    <div class="alert alert-warning">
+                    <h3>{{ el.service }}</h3>
+                    <p>{{ el.komm }}</p>
+                    <p>{{ el.date }}</p>
+                    <a href="{% url 'appli-detail' el.id %}"><button class="btn btn-warning"><i class="bi bi-info-circle"></i> Читать детально</button></a>
+                    <a href="{% url 'appli-export' el.id %}"><button class="btn btn-success"> <i class="bi bi-file-earmark-word"></i> Word</button></a>
+                    <a href="{% url 'appli-export-excel' el.id %}"> <button class="btn btn-success"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</button></a>
+                    <a href="{% url 'appli-delete' el.id %}"><button class="btn btn-danger"><i class="bi bi-trash"></i> Удалить</button></a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>У Вас отсутствуют заявки</p>
+        {% endif %}
+    </div>
+{% endblock %}
